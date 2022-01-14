@@ -28,7 +28,7 @@ aspect_categories_model = Sequential()
 aspect_categories_model.add(Dense(512, input_shape=(6000,), activation='relu'))
 aspect_categories_model.add(Dense(6, activation='softmax'))
 aspect_categories_model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
-vocab_size = 6000 # We set a maximum size for the vocabulary
+vocab_size = 6000
 tokenizer = Tokenizer(num_words=vocab_size)
 tokenizer.fit_on_texts(df_file.Comments)
 aspect_tokenized = pd.DataFrame(tokenizer.texts_to_matrix(df_file.aspect_terms))
@@ -38,7 +38,7 @@ dummy_category = to_categorical(integer_category)
 
 aspect_categories_model.fit(aspect_tokenized, dummy_category, epochs=5, verbose=1)
 
-new_review = "the staff were not welcoming"
+new_review = "service is bad"
 
 chunks = [(chunk.root.text) for chunk in nlp(new_review).noun_chunks if chunk.root.pos_ == 'NOUN']
 new_review_aspect_terms = ' '.join(chunks)

@@ -5,7 +5,7 @@ nlp = spacy.load("en_core_web_sm")
 
 
 df_file = pd.read_csv('/Users/teeradolimamnuaysup/Desktop/The Great Room Merchant Hotel.csv')
-df_file_title = df_file["Comments"]
+df_file_title = df_file[1:5]["Comments"]
 
 def multidimensional(text):
   sentences = text.tolist()
@@ -17,7 +17,7 @@ def multidimensional(text):
     target = ''
     for token in doc:
       
-      
+      print(token.text,token.dep_,token.pos_,token.head.pos_)
       if token.dep_ == 'nsubj' and token.pos_ == 'NOUN':
         target = token.text
       if token.dep_ == 'amod' and token.head.pos_ == 'NOUN':
@@ -45,3 +45,4 @@ def multidimensional(text):
 
  
 
+multidimensional(df_file_title)
