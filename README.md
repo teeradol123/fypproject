@@ -1,2 +1,2 @@
 # fypproject
-fyp 
+Restaurant goes out of business because they fail to recognise their customers satisfaction. This computer science project would be about data analysis of their review can help restaurant satisfy their customers. Using multidimensional reviews, data would be analysed then used to identify the problem that the restaurant is having. Programming language such as java/python would be used to date mine and analyse the reviews got from top restaurant review website. 
